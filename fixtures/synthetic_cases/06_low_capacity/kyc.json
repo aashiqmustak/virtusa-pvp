@@ -1,0 +1,23 @@
+{
+  "synthetic": true,
+  "kind": "kyc",
+  "expected_pages": 1,
+  "pages_present": [
+    1
+  ],
+  "fields": [
+    {
+      "name": "legal_name",
+      "value": "Asha Mehta (synthetic)",
+      "page": 1,
+      "source_text": "legal_name: Asha Mehta (synthetic)"
+    },
+    {
+      "name": "tax_id",
+      "value": "SYNTHETIC-TAX-001",
+      "page": 1,
+      "source_text": "tax_id: SYNTHETIC-TAX-001"
+    }
+  ],
+  "transactions": []
+}

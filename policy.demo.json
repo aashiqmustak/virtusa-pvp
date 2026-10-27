@@ -1,0 +1,10 @@
+{
+  "version": "demo-2026.1",
+  "min_months": 6,
+  "min_dscr": 1.25,
+  "max_principal": 5000000,
+  "max_tenure": 60,
+  "annual_rate_percent": 14,
+  "reconciliation_relative": 0.05,
+  "reconciliation_absolute_inr": 1000
+}

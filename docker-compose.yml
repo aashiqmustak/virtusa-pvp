@@ -1,0 +1,62 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: msme
+      POSTGRES_USER: msme
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-db-change-me}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U msme -d msme"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    mem_limit: 1g
+  api:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      DATABASE_URL: postgresql+psycopg://msme:${POSTGRES_PASSWORD:-local-db-change-me}@db:5432/msme
+      PRIVATE_STORAGE: /data/uploads
+      ANALYST_TOKEN: ${ANALYST_TOKEN:-local-analyst-change-me}
+      REVIEWER_TOKEN: ${REVIEWER_TOKEN:-local-reviewer-change-me}
+      VOICE_MODE: ${VOICE_MODE:-mock}
+      SARVAM_API_KEY: ${SARVAM_API_KEY:-}
+      SARVAM_STT_MODEL: ${SARVAM_STT_MODEL:-saaras:v3-realtime}
+      SARVAM_TTS_MODEL: ${SARVAM_TTS_MODEL:-bulbul:v3}
+      SARVAM_VOICE: ${SARVAM_VOICE:-shubh}
+      VOICE_ALLOWED_ORIGINS: ${VOICE_ALLOWED_ORIGINS:-http://localhost:8080,http://localhost:5173,http://127.0.0.1:8080,http://127.0.0.1:5173}
+      LLM_MODE: ${LLM_MODE:-mock}
+      OLLAMA_HOST: http://host.docker.internal:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-}
+      LLM_TIMEOUT: ${LLM_TIMEOUT:-45}
+      LLM_RETRIES: ${LLM_RETRIES:-1}
+      DOCUMENT_TIMEOUT: ${DOCUMENT_TIMEOUT:-90}
+      POLICY_FILE: /workspace/policy.demo.json
+    ports: ["127.0.0.1:8000:8000"]
+    extra_hosts: ["host.docker.internal:host-gateway"]
+    volumes:
+      - uploads:/data/uploads
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    mem_limit: 3g
+  client:
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    ports: ["127.0.0.1:8080:80"]
+    depends_on:
+      api:
+        condition: service_healthy
+    mem_limit: 256m
+volumes:
+  postgres_data:
+  uploads:

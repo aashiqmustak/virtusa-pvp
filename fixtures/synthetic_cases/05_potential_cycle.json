@@ -1,0 +1,585 @@
+{
+  "application": {
+    "applicant": "Asha Mehta (synthetic)",
+    "business": "Synthetic Precision Works",
+    "requested_amount": "1000000",
+    "tenure_months": 36,
+    "purpose": "Synthetic equipment purchase",
+    "synthetic": true
+  },
+  "documents": [
+    {
+      "synthetic": true,
+      "kind": "bank",
+      "expected_pages": 1,
+      "pages_present": [
+        1
+      ],
+      "fields": [],
+      "transactions": [
+        {
+          "transaction_id": "SYN-0-0",
+          "date": "2025-04-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-0-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-0-1",
+          "date": "2025-04-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-0-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-0-2",
+          "date": "2025-04-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-0-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-1-0",
+          "date": "2025-05-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-1-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-1-1",
+          "date": "2025-05-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-1-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-1-2",
+          "date": "2025-05-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-1-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-2-0",
+          "date": "2025-06-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-2-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-2-1",
+          "date": "2025-06-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-2-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-2-2",
+          "date": "2025-06-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-2-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-3-0",
+          "date": "2025-07-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-3-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-3-1",
+          "date": "2025-07-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-3-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-3-2",
+          "date": "2025-07-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-3-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-4-0",
+          "date": "2025-08-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-4-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-4-1",
+          "date": "2025-08-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-4-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-4-2",
+          "date": "2025-08-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-4-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-5-0",
+          "date": "2025-09-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-5-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-5-1",
+          "date": "2025-09-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-5-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-5-2",
+          "date": "2025-09-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-5-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-6-0",
+          "date": "2025-10-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-6-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-6-1",
+          "date": "2025-10-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-6-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-6-2",
+          "date": "2025-10-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-6-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-7-0",
+          "date": "2025-11-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-7-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-7-1",
+          "date": "2025-11-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-7-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-7-2",
+          "date": "2025-11-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-7-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-8-0",
+          "date": "2025-12-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-8-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-8-1",
+          "date": "2025-12-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-8-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-8-2",
+          "date": "2025-12-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-8-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-9-0",
+          "date": "2026-01-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-9-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-9-1",
+          "date": "2026-01-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-9-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-9-2",
+          "date": "2026-01-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-9-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-10-0",
+          "date": "2026-02-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-10-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-10-1",
+          "date": "2026-02-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-10-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-10-2",
+          "date": "2026-02-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-10-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "SYN-11-0",
+          "date": "2026-03-05",
+          "amount": "500000",
+          "direction": "credit",
+          "category": "operating",
+          "from_account": "SYN-CUSTOMER",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-11-0 operating credit INR 500000"
+        },
+        {
+          "transaction_id": "SYN-11-1",
+          "date": "2026-03-06",
+          "amount": "280000",
+          "direction": "debit",
+          "category": "operating",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-SUPPLIER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-11-1 operating debit INR 280000"
+        },
+        {
+          "transaction_id": "SYN-11-2",
+          "date": "2026-03-07",
+          "amount": "20000",
+          "direction": "debit",
+          "category": "debt",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-LENDER",
+          "page": 1,
+          "balance": "1000000",
+          "source_text": "Synthetic transaction SYN-11-2 debt debit INR 20000"
+        },
+        {
+          "transaction_id": "CYCLE-0",
+          "date": "2025-04-10",
+          "amount": "80000",
+          "direction": "debit",
+          "category": "transfer",
+          "from_account": "SYN-BUSINESS",
+          "to_account": "SYN-A",
+          "page": 1,
+          "balance": null,
+          "source_text": "Synthetic linked transfer SYN-BUSINESS to SYN-A, INR 80000 on 2025-04-10"
+        },
+        {
+          "transaction_id": "CYCLE-1",
+          "date": "2025-04-11",
+          "amount": "80000",
+          "direction": "debit",
+          "category": "transfer",
+          "from_account": "SYN-A",
+          "to_account": "SYN-B",
+          "page": 1,
+          "balance": null,
+          "source_text": "Synthetic linked transfer SYN-A to SYN-B, INR 80000 on 2025-04-11"
+        },
+        {
+          "transaction_id": "CYCLE-2",
+          "date": "2025-04-12",
+          "amount": "80000",
+          "direction": "credit",
+          "category": "transfer",
+          "from_account": "SYN-B",
+          "to_account": "SYN-BUSINESS",
+          "page": 1,
+          "balance": null,
+          "source_text": "Synthetic linked transfer SYN-B to SYN-BUSINESS, INR 80000 on 2025-04-12"
+        }
+      ],
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31"
+    },
+    {
+      "synthetic": true,
+      "kind": "gst",
+      "expected_pages": 1,
+      "pages_present": [
+        1
+      ],
+      "fields": [
+        {
+          "name": "gst_turnover",
+          "value": "6000000",
+          "page": 1,
+          "source_text": "gst_turnover: 6000000",
+          "period_start": "2025-04-01",
+          "period_end": "2026-03-31"
+        }
+      ],
+      "transactions": [],
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31"
+    },
+    {
+      "synthetic": true,
+      "kind": "itr",
+      "expected_pages": 1,
+      "pages_present": [
+        1
+      ],
+      "fields": [
+        {
+          "name": "itr_turnover",
+          "value": "6000000",
+          "page": 1,
+          "source_text": "itr_turnover: 6000000",
+          "period_start": "2025-04-01",
+          "period_end": "2026-03-31"
+        }
+      ],
+      "transactions": [],
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31"
+    },
+    {
+      "synthetic": true,
+      "kind": "financial",
+      "expected_pages": 1,
+      "pages_present": [
+        1
+      ],
+      "fields": [
+        {
+          "name": "financial_turnover",
+          "value": "6000000",
+          "page": 1,
+          "source_text": "financial_turnover: 6000000",
+          "period_start": "2025-04-01",
+          "period_end": "2026-03-31"
+        },
+        {
+          "name": "existing_monthly_debt",
+          "value": "20000",
+          "page": 1,
+          "source_text": "existing_monthly_debt: 20000"
+        }
+      ],
+      "transactions": [],
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31"
+    },
+    {
+      "synthetic": true,
+      "kind": "kyc",
+      "expected_pages": 1,
+      "pages_present": [
+        1
+      ],
+      "fields": [
+        {
+          "name": "legal_name",
+          "value": "Asha Mehta (synthetic)",
+          "page": 1,
+          "source_text": "legal_name: Asha Mehta (synthetic)"
+        },
+        {
+          "name": "tax_id",
+          "value": "SYNTHETIC-TAX-001",
+          "page": 1,
+          "source_text": "tax_id: SYNTHETIC-TAX-001"
+        }
+      ],
+      "transactions": []
+    }
+  ]
+}

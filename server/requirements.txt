@@ -1,0 +1,13 @@
+litestar[standard]==2.25.0
+pydantic==2.14.1
+SQLAlchemy==2.1.6
+psycopg[binary]==3.3.6
+PyMuPDF==1.26.6
+agno==3.1.10
+ollama==0.6.3
+httpx[socks]==0.28.1
+pytest==9.1.1
+openai==3.38.0
+uvicorn==0.54.0
+python-multipart==0.0.32
+pipecat-ai[sarvam]==1.14.0

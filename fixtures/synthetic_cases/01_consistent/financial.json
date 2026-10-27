@@ -1,0 +1,27 @@
+{
+  "synthetic": true,
+  "kind": "financial",
+  "expected_pages": 1,
+  "pages_present": [
+    1
+  ],
+  "fields": [
+    {
+      "name": "financial_turnover",
+      "value": "6000000",
+      "page": 1,
+      "source_text": "financial_turnover: 6000000",
+      "period_start": "2025-04-01",
+      "period_end": "2026-03-31"
+    },
+    {
+      "name": "existing_monthly_debt",
+      "value": "20000",
+      "page": 1,
+      "source_text": "existing_monthly_debt: 20000"
+    }
+  ],
+  "transactions": [],
+  "period_start": "2025-04-01",
+  "period_end": "2026-03-31"
+}

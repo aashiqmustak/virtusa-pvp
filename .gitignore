@@ -1,0 +1,10 @@
+.env
+*.db
+*.db-journal
+private_uploads/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+*.tsbuildinfo
+.venv/

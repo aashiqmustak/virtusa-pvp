@@ -1,0 +1,3 @@
+export interface ApplicationData {applicant:string;business:string;purpose:string;requested_amount:string|number;tenure_months:number;synthetic:true;journey?:any;annual_rate_percent?:number}
+export interface Case {id:string;created_at:string;status:string;revision:number;analyzed_revision:number;data:ApplicationData;documents?:Record<string,any>[];agent_runs?:Record<string,any>[];cam_versions?:Record<string,any>[];decisions?:Record<string,any>[];evidence_requests?:Record<string,any>[]}
+export interface Evidence {evidence_id:string;document_name:string;document_id:string;page:number;source_text:string;name?:string;value?:string|number;transaction_id?:string;date?:string;amount?:number;category?:string;superseded:boolean}
