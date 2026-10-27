@@ -2,7 +2,7 @@ services:
   - type: web
     name: msme-backend
     runtime: docker
-    dockerfilePath: server/Dockerfile
+    dockerfilePath: Dockerfile
     dockerContext: .
     plan: free
     healthCheckPath: /api/health
