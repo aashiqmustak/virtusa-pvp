@@ -51,7 +51,8 @@ async def start(request:Request,case_id:str,data:StartVoice)->dict:
 @websocket('/api/voice/socket')
 async def voice_socket(socket:WebSocket)->None:
     origin=socket.headers.get('origin')
-    if origin and origin not in settings.voice_origins.split(','):
+    allowed_origins=[o.strip() for o in settings.voice_origins.split(',') if o.strip()]
+    if origin and '*' not in allowed_origins and origin not in allowed_origins:
         await socket.close(code=1008);return
     await socket.accept();session_id=None;interview=None;worker=None;runner_task=None;status='aborted';send_lock=asyncio.Lock()
     async def send(payload):

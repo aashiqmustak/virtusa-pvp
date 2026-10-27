@@ -3,6 +3,7 @@ import {displayText,displayJson,initials} from "../stores/presentation"
 import VoiceInterview from '../components/VoiceInterview.vue'
 import {computed,ref,onMounted} from 'vue'
 import {inr,label} from '../stores/desk'
+import {API_BASE} from '../api'
 const emit=defineEmits(['staff','home'])
 const profiles=ref<any[]>([]),profile=ref<any>(null),chosen=ref('SYN-0001'),session=ref(sessionStorage.getItem('borrower_token')||'')
 const challenge=ref<any>(null),code=ref(''),kyc=ref(''),kycChallenge=ref<any>(null),kycCode=ref(''),cases=ref<any[]>([]),active=ref<any>(null),busy=ref(false),error=ref(''),step=ref(1),newCase=ref(false),notice=ref('')
@@ -10,7 +11,7 @@ const pan=ref(''),dob=ref(''),purpose=ref('Purchase equipment to grow our busine
 const requestedTotal=computed(()=>cases.value.reduce((sum,a)=>sum+Number(a.data.requested_amount),0))
 const awaitingCount=computed(()=>cases.value.filter(a=>!['approved','rejected'].includes(a.status)).length)
 const consentOptions=[['kyc','Identity and business verification'],['bank','Bank statement retrieval'],['tax','GST and ITR retrieval'],['bureau','Bureau report retrieval'],['processing','Processing data for this application']]
-async function call(path:string,body?:any){const r=await fetch('/api'+path,{method:body===undefined?'GET':'POST',headers:{Authorization:'Bearer '+session.value,...(body===undefined?{}:{'Content-Type':'application/json'})},body:body===undefined?undefined:JSON.stringify(body)});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Request failed');return d}
+async function call(path:string,body?:any){const r=await fetch(API_BASE+'/api'+path,{method:body===undefined?'GET':'POST',headers:{Authorization:'Bearer '+session.value,...(body===undefined?{}:{'Content-Type':'application/json'})},body:body===undefined?undefined:JSON.stringify(body)});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Request failed');return d}
 async function work(fn:()=>Promise<any>){busy.value=true;error.value='';try{await fn()}catch(e){error.value=(e as Error).message}finally{busy.value=false}}
 async function load(){const d=await call('/borrower/applications');profile.value=d.profile;cases.value=d.items;if(active.value)active.value=cases.value.find(x=>x.id===active.value.id);pan.value=d.profile.pan;dob.value=d.profile.dob}
 async function requestLogin(){await work(async()=>{const p=profiles.value.find(x=>x.id===chosen.value);challenge.value=await call('/demo/otp/request',{mobile:p.mobile,purpose:'login'});code.value=''})}
@@ -21,7 +22,7 @@ async function verifyKyc(){await work(async()=>{const d=await call('/demo/otp/ve
 function start(){newCase.value=true;active.value=null;step.value=1;kyc.value='';kycChallenge.value=null;consents.value=[]}
 async function submit(){await work(async()=>{active.value=await call('/borrower/applications',{kyc_proof:kyc.value,pan:pan.value,dob:dob.value,purpose:purpose.value,requested_amount:amount.value,tenure_months:tenure.value,loan_type:loanType.value,consents:consents.value});newCase.value=false;await load();active.value=await call('/borrower/applications/'+active.value.id+'/fetch',{});await load()})}
 async function refreshFetch(){await work(async()=>{active.value=await call('/borrower/applications/'+active.value.id+'/fetch',{});await load()})}
-async function upload(e:Event){const input=e.target as HTMLInputElement;const f=input.files?.[0];if(!f)return;await work(async()=>{const form=new FormData();form.append('data',f);const r=await fetch('/api/borrower/applications/'+active.value.id+'/documents?kind='+docKind.value+(replacement.value?'&replaces='+replacement.value:''),{method:'POST',headers:{Authorization:'Bearer '+session.value},body:form});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Upload failed');active.value=d;replacement.value='';await load()});input.value=''}
+async function upload(e:Event){const input=e.target as HTMLInputElement;const f=input.files?.[0];if(!f)return;await work(async()=>{const form=new FormData();form.append('data',f);const r=await fetch(API_BASE+'/api/borrower/applications/'+active.value.id+'/documents?kind='+docKind.value+(replacement.value?'&replaces='+replacement.value:''),{method:'POST',headers:{Authorization:'Bearer '+session.value},body:form});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Upload failed');active.value=d;replacement.value='';await load()});input.value=''}
 async function sendResponse(){await work(async()=>{const r=await call('/borrower/applications/'+active.value.id+'/responses',{message:response.value});notice.value=r.message;response.value='';await load()})}
 onMounted(()=>work(async()=>{profiles.value=(await call('/demo/profiles')).items;if(session.value){try{await load()}catch{session.value='';sessionStorage.removeItem('borrower_token')}}}))
 </script>

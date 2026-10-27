@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import {displayText,displayJson,initials} from "../stores/presentation"
 import {ref,onMounted,onUnmounted,nextTick} from 'vue'
-import {api as staffApi} from '../api'
+import {api as staffApi, API_BASE} from '../api'
 const props=defineProps<{caseId:string;revision:number;disabled:boolean;borrower?:boolean;reviewOnly?:boolean}>(),emit=defineEmits(['changed','notes'])
-async function api(path:string,body?:any){if(!props.borrower)return staffApi(path,body);const r=await fetch('/api'+path,{method:body===undefined?'GET':'POST',headers:{Authorization:'Bearer '+(sessionStorage.getItem('borrower_token')||''),...(body===undefined?{}:{'Content-Type':'application/json'})},body:body===undefined?undefined:JSON.stringify(body)});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Interview unavailable');return d}
+async function api(path:string,body?:any){if(!props.borrower)return staffApi(path,body);const r=await fetch(API_BASE+'/api'+path,{method:body===undefined?'GET':'POST',headers:{Authorization:'Bearer '+(sessionStorage.getItem('borrower_token')||''),...(body===undefined?{}:{'Content-Type':'application/json'})},body:body===undefined?undefined:JSON.stringify(body)});const d=await r.json().catch(()=>{throw Error('Service unavailable. Please try again shortly.')});if(!r.ok)throw Error(d.detail||'Interview unavailable');return d}
 const camera=ref(false),preview=ref<HTMLVideoElement|null>(null),speaking=ref(false)
 let cameraStream:MediaStream|undefined
 function closeCamera(){cameraStream?.getTracks().forEach(t=>t.stop());cameraStream=undefined;camera.value=false}
@@ -20,7 +20,10 @@ async function start(){busy.value=true;error.value='';completed.value=false;tran
   context=new AudioContext();await context.resume();await context.audioWorklet.addModule('/pcm-capture.js');stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true,autoGainControl:true},video:false});source=context.createMediaStreamSource(stream);processor=new AudioWorkletNode(context,'pcm-capture');processor.port.onmessage=e=>{if(ws?.readyState===WebSocket.OPEN){if(ws.bufferedAmount>64000){error.value='Connection is too slow; session stopped.';stop();return}ws.send(e.data)}};source.connect(processor);processor.connect(context.destination);
  }
  const d=await api('/applications/'+props.caseId+'/voice-sessions',{revision:props.revision,language:language.value,consent:consent.value});
- ws=new WebSocket((location.protocol==='https:'?'wss://':'ws://')+location.host+d.socket_path);active.value=true;ready.value=false;
+ const wsProtocol=location.protocol==='https:'?'wss://':'ws://';
+ const defaultWsHost=wsProtocol+location.host;
+ const wsHost=API_BASE?API_BASE.replace(/^http:\/\//,'ws://').replace(/^https:\/\//,'wss://'):defaultWsHost;
+ ws=new WebSocket(wsHost+d.socket_path);active.value=true;ready.value=false;
  ws.onopen=()=>ws?.send(JSON.stringify({session_id:d.session_id,ticket:d.ticket}));
  ws.onmessage=e=>{const m=JSON.parse(e.data);if(m.type==='ready')ready.value=true;if(m.type==='question'){question.value=m.text;transcript.value='';answer.value=''}if(m.type==='transcript')transcript.value=m.text;if(m.type==='answer_saved')turns.value=m.turns;if(m.type==='completed'){completed.value=true;recording.value=false;processor?.port.postMessage({record:false})}if(m.type==='validation'||m.type==='error')error.value=m.message;if(m.type==='saved'){active.value=false;void load();emit('changed')}
  if(m.type==='audio'&&context){const b=atob(m.pcm),data=new DataView(new ArrayBuffer(b.length));for(let i=0;i<b.length;i++)data.setUint8(i,b.charCodeAt(i));const audio=context.createBuffer(1,b.length/2,m.sample_rate),samples=audio.getChannelData(0);for(let i=0;i<samples.length;i++)samples[i]=data.getInt16(i*2,true)/32768;const node=context.createBufferSource();node.buffer=audio;node.connect(context.destination);playAt=Math.max(playAt,context.currentTime);if(playAt-context.currentTime>15){error.value='Audio playback fell behind; stopping session.';stop();return}playing.add(node);speaking.value=true;node.onended=()=>{playing.delete(node);speaking.value=playing.size>0};node.start(playAt);playAt+=audio.duration;}
